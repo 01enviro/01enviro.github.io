@@ -616,14 +616,9 @@ a:hover {
   font-size: 16px;
 }
 
-
 .dlazdica-s-logom-a-textom img {
   max-width: 100%;         /* Prispôsobí veľkosť obrázku podľa kontajnera */
   max-height: 150px;
-}
-
-.popisny-text-pod-logom {
-  font-size: 16px;         /* Prípadne prispôsob veľkosť písma */
 }
 
 /* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa */
@@ -1001,21 +996,40 @@ button.form-submit-button {
   grid-template-columns: repeat(auto-fill, 170px); /* 250px široké dlaždice */
   padding: 0px;
   font-size: 0.7rem;
+  gap: 15px;
   }
 
   .menu-text-mriezka-dlazdice {
     font-size: 0.8rem;
+    padding: 15px;
   }
 
   .popis-v-dlazdici {
-    top: 5px; /* umiestnenie podľa potreby */
-    margin-left: 5px;
-    margin-right: 5px;
+    top: 3px; /* umiestnenie podľa potreby */
+    margin-left: 3px;
+    margin-right: 3px;
+
+    padding: 15px;
+    box-sizing: border-box; /* zabezpečí, že padding sa započíta do veľkosti */
+
+      /* hranatá maska cez vrstvené lineárne gradienty */
+    -webkit-mask-image: 
+      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px);
+    -webkit-mask-composite: intersect;
+    mask-composite: intersect;
+    mask-image: 
+      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px);/**/
   }
 
   .menu-item-mriezka-dlazdice {
     width: 170px;
-    height: 350px;
+    height: 300px;
   }
 
   /*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*/
@@ -1033,7 +1047,11 @@ button.form-submit-button {
 
   .dlazdica-s-logom-a-textom {
     height: 250px; /* pevná výška dlaždice */
-    padding: 20px;
+    padding: 15px;
+  }
+
+  .popisny-text-pod-logom {
+    font-size: 14px;
   }
 
   #ol-map.nizsia {
@@ -1134,8 +1152,8 @@ button.form-submit-button {
   }
 
   .panel-s-obsahom-stranky {
-    margin: 1rem;
-    padding: 1rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
   }
 
   .panel-na-odsadenie {
@@ -1157,31 +1175,52 @@ button.form-submit-button {
 
   .menu-panel-mriezka-dlazdice {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 170px); /* 250px široké dlaždice */
+  grid-template-columns: repeat(auto-fill, 110px); /* 250px široké dlaždice */
   padding: 0px;
-  font-size: 0.7rem;
+  font-size: 0.5rem;
+  gap: 8px;
   }
 
   .menu-text-mriezka-dlazdice {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
+    padding: 8px;
   }
 
   .popis-v-dlazdici {
-    top: 5px; /* umiestnenie podľa potreby */
-    margin-left: 5px;
-    margin-right: 5px;
+    top: 1px; /* umiestnenie podľa potreby */
+    margin-left: 1px;
+    margin-right: 1px;
+
+    padding: 8px;
+    box-sizing: border-box; /* zabezpečí, že padding sa započíta do veľkosti */
+
+      /* hranatá maska cez vrstvené lineárne gradienty */
+    -webkit-mask-image: 
+      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px);
+    -webkit-mask-composite: intersect;
+    mask-composite: intersect;
+    mask-image: 
+      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px);/**/
   }
 
+
   .menu-item-mriezka-dlazdice {
-    width: 170px;
-    height: 350px;
+    width: 110px;
+    height: 210px;
+    border-radius: 6px;
   }
 
   /*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*/
 
   .panel-mriezka-pre-loga {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 170px); /* 250px široké dlaždice */
+    grid-template-columns: repeat(auto-fill, 110px); /* 250px široké dlaždice */
     justify-content: center; /* zarovnanie do stredu */
     gap: 20px;
     width: 90%;
@@ -1191,16 +1230,20 @@ button.form-submit-button {
   }
 
   .dlazdica-s-logom-a-textom {
-    height: 250px; /* pevná výška dlaždice */
+    height: 110px; /* pevná výška dlaždice */
     padding: 20px;
   }
 
-    #ol-map.nizsia {
-    height: 400px; /* nastav dostatočnú výšku */
-    }
+  .popisny-text-pod-logom {
+    font-size: 10px;
+  }
 
-    #ol-map.vyssia {
-      height: 500px; /* nastav dostatočnú výšku */
-    }
+  #ol-map.nizsia {
+  height: 400px; /* nastav dostatočnú výšku */
+  }
+
+  #ol-map.vyssia {
+    height: 500px; /* nastav dostatočnú výšku */
+  }
 
 }
