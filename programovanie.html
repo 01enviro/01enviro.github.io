@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title preklad-data-text="programovanie"></title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+    <!-- OpenLayers -->
+    <link href="https://cdn.jsdelivr.net/npm/ol@latest/ol.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+  </head>
+  <body>
+
+
+    
+    <div class="hlavna-hlavicka">
+
+      <div class="neviditelnyPanelVHlavickeAPate" style="background-image: url('obrazky/programovanie.jpg')">
+        
+        <div class="vertikalny-panel-s-logom-a-menu">
+          <div class="logo">
+            <a href="index.html">
+              <img src="obrazky/logoEnviro01Transparent.png" alt="Logo" />
+            </a>
+          </div>
+          
+          <div class="menu-panel"></div>
+
+        </div>
+
+        <div class="vertikalny-panel-vedla-panela-s-menu-automaticka-sirka">
+          <div class="priesvitny-zvyraznujuci-panel">
+
+            <div class="overlay-text" preklad-data-text="programovanie" overlay-data-text=""></div>
+
+            <div class="normalny-text-bledy" preklad-data-text="popisProgramovanie"></div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <canvas id="bg"></canvas>
+
+    <div class="panel-s-obsahom-stranky">
+      <div class="panel-na-odsadenie">
+
+        <header preklad-data-text="nadpisProgramovanie"></header>
+
+        <div class="normalny-text-vlavo" preklad-data-text="textProgramovanie"></div>
+
+        <div class="oddelovac-obsahu"></div>
+
+        <button id="open-form-button" class="interest-button" preklad-data-text="mamZaujem"></button>
+
+        <div id="form-container">
+          <form id="contact-form" action="https://usebasin.com/f/8a7911a18483" method="POST" enctype="application/x-www-form-urlencoded">
+            <input type="email" name="email" preklad-placeholder="vasEmail" required pattern="[^@\s]+@[^@\s]+\.[a-zA-Z]{2,4}" placeholder="napr. meno@domena.sk">
+            <textarea name="message" preklad-placeholder="vasaSprava" rows="5" required></textarea>
+            <button type="submit" class="form-submit-button" preklad-data-text="odoslat"></button>
+          </form>
+          <div class="success-message" id="success-message" preklad-data-text="dakujemeSpravaOdoslana"></div>
+        </div>
+
+        <!-- Loader pri odosielaní -->
+        <div id="form-loader" style="display: none;">
+          <div class="spinner"></div>
+        </div>
+
+        <!-- Výsledok po odoslaní -->
+        <div id="success-check" style="display: none;">
+          <div class="checkmark-circle">
+            <div class="background"></div>
+            <div class="checkmark"></div>
+          </div>
+          <div class="success-message-text" preklad-data-text="dakujemeSpravaOdoslana"></div>
+        </div>
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+    <div class="pataStranky">
+
+      <div class="neviditelnyPanelVHlavickeAPate" style="background-image: url('obrazky/programovanie.jpg'); background-position: center bottom;">
+
+        <div class="priesvitny-zvyraznujuci-panel-v-pate">
+        
+          <div class="text-zarovnany-do-lava-s-odsadenim">
+            &copy; <span id="current-year"></span>&nbsp;&nbsp;&nbsp;01enviro.github.io
+          </div>
+        
+          <script>
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+          </script>
+
+        </div>
+        
+      </div>
+
+    </div>
+    
+    <script src="skripty/menu.js"></script>
+    <script src="skripty/vlozTexty.js"></script>
+    <script src="skripty/odsadenie-po-br.js"></script>
+    <script src="skripty/prichodTextuPoPismenach.js"></script>
+    <script src="skripty/oznacovanieAktivnejMenuDlazdice.js"></script>
+    <script src="skripty/backgroundScript.js"></script>
+    <script src="skripty/afterEfektNadpisovPriSkrolovani.js"></script>
+    <script src="skripty/ol-map.js"></script>
+    <script src="skripty/formular.js"></script>
+
+  </body>
+</html>

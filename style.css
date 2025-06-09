@@ -1,0 +1,1054 @@
+html, body {
+  margin: 0;
+  padding: 0;
+
+  height: auto;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 100;
+  background: #ddd6b1;
+}
+
+canvas#bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: block; /* zruší margin-bottom od inline elements */
+  max-width: 100%;
+}
+
+
+header {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  word-spacing: 0.05em;
+  text-align: center;
+  margin: 0rem;
+  padding: 1rem;
+}
+
+header::after {
+  content: attr(header-data-text);
+  position: absolute;
+  font-weight: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: scale(var(--after-scale, 2));
+  opacity: var(--after-opacity, 0.3);
+  color: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  z-index: -1;
+  transition: transform 0.2s, opacity 0.2s;
+  white-space: normal;
+
+  filter: blur(2px); /* 🔍 Jemné rozmazanie efektu */
+}
+
+main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov */
+
+.jazykovy-prepinac {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  display: flex;
+  gap: 8px;
+  z-index: 1000;
+}
+
+.jazykovy-prepinac button {
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.jazykovy-prepinac button:hover {
+  background-color: #ddd;
+}
+
+
+
+/* HLAVICKA STRANKY*//* HLAVICKA STRANKY*//* HLAVICKA STRANKY*//* HLAVICKA STRANKY*//* HLAVICKA STRANKY*/
+
+.hlavna-hlavicka {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  /*box-shadow: 0 0px 24px rgba(0, 0, 0, 0.418);*/
+  padding: 0;
+  z-index: 1;
+  width: 100%;
+  height: 900px;
+
+  /* hranatá maska cez vrstvené lineárne gradienty */
+  -webkit-mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 8px);
+
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+  mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 8px);/**/
+}
+
+.neviditelnyPanelVHlavickeAPate {
+  position: relative;
+  width: 85%;
+  margin-left: auto;
+  padding: 0rem;
+  display: flex;
+  flex-direction: row;
+  background-image: url('obrazky/pozadie01.png');
+  background-size: cover;
+}
+
+.vertikalny-panel-s-logom-a-menu {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Dôležité – zabraňuje pretečeniu pri paddingoch */
+}
+
+/* Logo dlaždica – vyššia */
+.logo {
+  width: 300px;
+  height: 300px; /* pevná výška loga */
+  
+  background-color: rgba(255, 255, 255, 0.5); /* priesvitná biela */
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.logo img {
+  width: 80%;       /* prispôsobí sa šírke kontajnera */
+  height: auto;      /* zachová pomer strán */
+  image-rendering: smooth;
+}
+
+/* Vertikálny panel vľavo */
+.menu-panel {
+  flex: 1; /* zaberie zvyšok výšky pod logom */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; /* rovnomerne rozložené položky */
+  height: 500px;
+}
+
+
+/* Štýl jednotlivých dlaždíc */
+.menu-item {
+  flex: 1; /* ← automaticky rozdelí výšku medzi všetky položky */
+
+  border-radius: 0rem;
+  padding: 0rem;
+  margin: 0rem;
+
+  color: #ddd6b1; /*farba písma*/
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+
+  cursor: pointer;
+  transform-origin: center; /* zmeny sa budú diať doprava a vertikálne */
+  z-index: 20;
+  transform-origin: left center; /* zmeny sa budú diať len doprava */
+
+  text-align: left;
+  padding-left: 30px; /* priestor okolo textu */
+  padding-right: 30px;
+  display: flex;                  /* Aktivuje flexbox */
+  align-items: center;            /* Vertikálne centrovanie */
+  justify-content: flex-start;    /* Horizontálne zarovnanie vľavo */
+
+  background-color: rgba(10, 9, 0, 0.5);
+}
+
+.menu-item.active {
+  background-color: rgba(255, 255, 255, 0.5); /* polopriesvitná biela */
+  color: #000; /* tmavší text pre kontrast */
+  font-weight: 700;
+}
+
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* priesvitná biela */
+  transform: scaleX(1.3) scaleY(1.3);
+  color: black; /* ← zmena farby písma pri hoverovaní */
+  text-decoration: none;
+}
+
+
+
+
+.vertikalny-panel-vedla-panela-s-menu-automaticka-sirka {
+  position: relative;
+  flex: 1; /* zaberie zvyšný priestor vedľa menu */ 
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.priesvitny-zvyraznujuci-panel {
+  position: absolute;
+
+  top: 300px;
+  bottom: auto;
+  left: 0%;
+  right: 0%;
+
+  background-color: rgba(10, 9, 0, 0.5); /* priesvitná čierna */
+  backdrop-filter: blur(8px);
+
+  /*display: flex;*/
+  flex-direction: column;
+
+  justify-content: left;
+  z-index: 1; /* zabezpečí, že text bude nad obrázkom */
+
+    /* hranatá maska cez vrstvené lineárne gradienty */
+  -webkit-mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%),
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 20%),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%);
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+  mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%),
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 20%),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%);/**/
+
+  overflow: hidden; /*aby animované písmo nepretekalo cez okraj a nerozširovalo zbytočne canvas*/
+}
+
+
+
+.overlay-text {
+  position: relative;
+  color: #ddd6b1;
+  font-size: 3rem;
+  font-weight: bold;
+
+  margin-left: 100px;
+  margin-top: 50px;
+
+  animation: fadeScaleUp 1.6s ease-out forwards;
+  animation-delay: 0s;
+  z-index: 50;
+  width: 500px;
+  font-weight: 1000;
+}
+
+.overlay-text::after {
+  content: attr(overlay-data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(100px, 0px) scale(1.5);
+  color: rgba(255, 255, 255, 0.116);
+  z-index: -1;
+  pointer-events: none;
+  width: 100%;
+
+  filter: blur(2px); /* 🔍 Jemné rozmazanie efektu */
+}
+
+@keyframes fadeScaleUp {
+  from {
+    transform: translate(0%, 0%) scale(10); 
+    opacity: 0;
+  }
+  to {
+    transform: translate(0%, 0%) scale(1); 
+    opacity: 1;
+  }
+}
+
+.normalny-text {
+  font-size: 1.1em;           /* Zväčšenie textu (napr. 120 % veľkosti pôvodného textu) */
+  line-height: 1.5;           /* Zvýšenie riadkovania – odporúča sa medzi 1.4 až 1.8 */
+  letter-spacing: 0.1em;     /* Medzery medzi znakmi – jemne prevzdušní text */
+  word-spacing: 0.1em;        /* Voliteľné: trochu viac priestoru medzi slovami */
+
+  text-align: justify;          /* zarovnanie do bloku */
+  margin: 0 auto;               /* vycentruje blok na stránke */
+  
+  font-weight: 10;          /* tenší rez písma */
+}
+
+.normalny-text-vlavo {
+  font-size: 1.1em;           /* Zväčšenie textu (napr. 120 % veľkosti pôvodného textu) */
+  line-height: 1.5;           /* Zvýšenie riadkovania – odporúča sa medzi 1.4 až 1.8 */
+  letter-spacing: 0.1em;     /* Medzery medzi znakmi – jemne prevzdušní text */
+  word-spacing: 0.1em;        /* Voliteľné: trochu viac priestoru medzi slovami */
+
+  text-align: justify;          /* zarovnanie do bloku */
+  margin: 0 auto;               /* vycentruje blok na stránke */
+  
+  font-weight: 10;          /* tenší rez písma */
+}
+
+.normalny-text-bledy {
+  position: relative;
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 20%;
+
+  padding-bottom: 40px;
+
+
+  font-size: 1.2em;           /* Zväčšenie textu (napr. 120 % veľkosti pôvodného textu) */
+  line-height: 1.6;           /* Zvýšenie riadkovania – odporúča sa medzi 1.4 až 1.8 */
+  letter-spacing: 0.1em;     /* Medzery medzi znakmi – jemne prevzdušní text */
+  word-spacing: 0.1em;        /* Voliteľné: trochu viac priestoru medzi slovami */
+
+  text-align: left;          
+  
+  font-weight: 10;          /* tenší rez písma */
+
+  color: white;
+}
+
+/*Automaticky to funguje len so skriptom*/
+.odsadenie-po-br {
+  display: block;
+  height: 1em; /* alebo napr. 1em podľa potreby */
+}
+
+@keyframes fadeInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+/* OBSAH STRANKY*//* OBSAH STRANKY*//* OBSAH STRANKY*//* OBSAH STRANKY*//* OBSAH STRANKY*/
+
+.panel-s-obsahom-stranky {
+  position: relative;
+
+  /*vonkajšie odsadenie*/
+  margin-left: 15%;
+  margin-right: 0%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  /*border-radius: 0px;*/
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* hranatá maska cez vrstvené lineárne gradienty */
+  -webkit-mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 50px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 50px),
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%);
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+  mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 50px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 50px),
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%);/**/
+
+  overflow: hidden; /*aby animované písmo nepretekalo cez okraj a nerozširovalo zbytočne canvas*/
+}
+
+.panel-na-odsadenie {
+  margin-right: 15%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.oddelovac-obsahu {
+  position: relative;
+  display: flex;
+  z-index: 3;
+  border-radius: 16px;
+  height: 20px;
+  background-color: #ddd6b1; /* priesvitná čierna */
+  backdrop-filter: blur(8px);
+
+  /* hranatá maska cez vrstvené lineárne gradienty */
+  -webkit-mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 50%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 50%),
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 20%),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 20%);
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+  mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 50%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 50%),
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 20%),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 20%);/**/
+
+    margin: 30px; /* rovnaký priestor zo všetkých strán */ /*margin - vonkajší priestor od ostatného obsahu, padding - vnútorný priestor medzi obsahom prvku a okrajom toho prvku */
+}
+
+.menu-panel-mriezka-dlazdice {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px); /* 250px široké dlaždice */
+  justify-content: center; /* zarovnanie do stredu */
+  gap: 20px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.popis-v-dlazdici {
+  position: absolute;
+  top: 10px; /* umiestnenie podľa potreby */
+  margin-left: 10px;
+  margin-right: 10px;
+
+  z-index: 2; 
+  text-align: left;
+  backdrop-filter: blur(8px);
+  padding: 10px;
+  color: white;
+  background-color: rgba(10, 9, 0, 0.5);
+  border-radius: 6px;
+  pointer-events: none; /* zabráni interakcii s hover efektom */
+
+  padding: 25px;
+  box-sizing: border-box; /* zabezpečí, že padding sa započíta do veľkosti */
+
+    /* hranatá maska cez vrstvené lineárne gradienty */
+  -webkit-mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px);
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+  mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 15px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 15px),
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 15px),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 15px);/**/
+}
+
+.menu-item-mriezka-dlazdice {
+  width: 250px;
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+.menu-item-mriezka-dlazdice:hover {
+  transform: scaleX(1.2) scaleY(1.2);
+  text-decoration: none;
+  align-items: center;
+  z-index: 10;
+}
+
+.menu-text-mriezka-dlazdice {
+  position: relative;
+  z-index: 3;
+  color: #ddd6b1;
+  font-size: 1.2rem;
+  padding: 20px;
+  transform: translateY(0%);
+  text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.9); /* ← tieň textu */
+  transition: color 1s ease, transform 0.3s ease, text-shadow 0.5s ease;
+}
+
+
+.menu-overlay-mriezka-dlazdice {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0); /* začína ako neviditeľný */
+  backdrop-filter: blur(0px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  z-index: 3;
+}
+
+.menu-item-mriezka-dlazdice:hover .menu-overlay-mriezka-dlazdice {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.menu-item-mriezka-dlazdice:hover .menu-text-mriezka-dlazdice {
+  color: black;
+  transform: translateY(-50%);
+  text-shadow: none;
+}
+
+.panel-na-zvyraznenie-pisma-mriezka-dlazdice {
+  position: absolute;
+
+  top: 82%;
+  bottom: 0px;
+  left: 0%;
+  right: 0%;
+
+  background-color: rgba(10, 9, 0, 0.5); /* priesvitná čierna */
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  z-index: 2; /* zabezpečí, že text bude nad obrázkom */
+  backdrop-filter: blur(8px);
+}
+
+.obrazok {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 20px auto;
+  display: block;
+}
+
+/*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*/
+
+.panel-mriezka-pre-loga {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px); /* 250px široké dlaždice */
+  justify-content: center; /* zarovnanie do stredu */
+  gap: 20px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.dlazdica-s-logom-a-textom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* logo hore, text dole */
+  align-items: center;
+  text-align: center;
+  height: 250px; /* pevná výška dlaždice */
+  padding: 10px;
+  box-sizing: border-box;
+  /*border: 1px solid #ccc; /* len na ilustráciu */
+}
+
+.dlazdica-s-logom-a-textom.kyvnutie {
+  animation: kyvnutie 0.6s ease-in-out;
+}
+
+@keyframes kyvnutie {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  50% { transform: rotate(6deg); }
+  75% { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* nový blok pre vertikálne centrovanie loga */
+.logo-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center; /* vertikálne centrovanie v priestore */
+  justify-content: center; /* horizontálne centrovanie */
+  width: 100%;
+}
+
+.logo-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.popisny-text-pod-logom {
+  font-size: 16px;
+}
+
+
+.dlazdica-s-logom-a-textom img {
+  max-width: 100%;         /* Prispôsobí veľkosť obrázku podľa kontajnera */
+  max-height: 150px;
+}
+
+.popisny-text-pod-logom {
+  font-size: 16px;         /* Prípadne prispôsob veľkosť písma */
+}
+
+/* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa *//* Mapa */
+/* Štýl pre mapový kontajner */
+
+#ol-map.nizsia {
+  height: 700px; /* nastav dostatočnú výšku */
+  width: 100%;   /* rozťahuje sa na celú šírku rodiča */
+  margin-top: 20px;
+  margin-bottom: 70px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#ol-map.vyssia {
+  height: 900px; /* nastav dostatočnú výšku */
+  width: 100%;   /* rozťahuje sa na celú šírku rodiča */
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/*KONTAKTNÝ FORMULÁR*//*KONTAKTNÝ FORMULÁR*//*KONTAKTNÝ FORMULÁR*//*KONTAKTNÝ FORMULÁR*/
+
+#form-container {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 1s ease, opacity 1s ease;
+
+  overflow: hidden;
+}
+
+#form-container.show {
+  max-height: 500px; /* dostatočná výška pre formulár */
+  opacity: 1;
+  overflow: hidden;
+}
+
+input,
+textarea {
+  width: 97%;
+  padding: 10px;
+  margin: 10px;
+  font-size: 1em;
+
+  background-color: rgba(10, 9, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  /*backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);*/
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+button.interest-button {
+  /* Špecifický štýl len pre toto tlačidlo */
+  background-color: rgb(10, 9, 0, 0.5);
+  height: 50px;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button.form-submit-button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: rgba(10, 9, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.success-message {
+  color: green;
+  margin-top: 15px;
+  display: none;
+}
+
+/* Loader */
+#form-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.spinner {
+  border: 4px solid #ccc;
+  border-top: 4px solid #00aa00;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Zelený kruh s fajkou */
+#success-check {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.success-message-text {
+  font-size: 1.1em;           /* Zväčšenie textu (napr. 120 % veľkosti pôvodného textu) */
+  line-height: 1.5;           /* Zvýšenie riadkovania – odporúča sa medzi 1.4 až 1.8 */
+  letter-spacing: 0.1em;     /* Medzery medzi znakmi – jemne prevzdušní text */
+  word-spacing: 0.1em;        /* Voliteľné: trochu viac priestoru medzi slovami */
+
+  text-align: center;          /* zarovnanie do bloku */
+  padding: 30px;               /* vycentruje blok na stránke */
+  
+  font-weight: 10;          /* tenší rez písma */
+}
+
+.checkmark-circle {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: scaleIn 0.6s ease-out; /* spomalíme ak treba */
+}
+
+.checkmark {
+  width: 75px;
+  height: 40px;
+  border-left: 15px solid black; /* začiatok – čierna */
+  border-bottom: 15px solid black;
+  transform: rotate(-360deg) translate(0px, 0px);
+  animation: drawCheck 1s ease forwards; /* upravená dĺžka na 3s */
+}
+
+
+/* Animácie */
+@keyframes scaleIn {
+  0% { transform: scale(0); opacity: 0;}
+  100% { transform: scale(1); opacity: 1;}
+}
+
+@keyframes drawCheck {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-270deg) translate(0px, 0px);
+    border-left-color: black;
+    border-bottom-color: black;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.8) rotate(-45deg) translate(0px, 0px);
+    border-left-color: #000000; /* medzistupeň – sivá */
+    border-bottom-color: #000000;
+  }
+  100% {
+    transform: scale(0.8) rotate(-45deg) translate(0px, 0px);
+    border-left-color: white;
+    border-bottom-color: white;
+  }
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* PATA STRANKY*//* PATA STRANKY*//* PATA STRANKY*//* PATA STRANKY*//* PATA STRANKY*/
+
+.pataStranky {
+  position: relative;
+  bottom: 0;
+  display: flex;
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  /*box-shadow: 0 0px 24px rgba(0, 0, 0, 0.418);*/
+  padding: 0;
+  z-index: 10;
+  width: 100%;
+
+    /* hranatá maska cez vrstvené lineárne gradienty */
+  -webkit-mask-image: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 8px);
+
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+  mask-image: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 8px);/**/
+
+}
+
+.priesvitny-zvyraznujuci-panel-v-pate {
+  position: relative;
+  display: flex;
+
+  width: 300px;
+  height: 100%;
+
+  background-color: rgba(10, 9, 0, 0.5); /* priesvitná čierna */
+  backdrop-filter: blur(8px);
+
+  /*display: flex;*/
+  flex-direction: column;
+
+  justify-content: left;
+  z-index: 1; /* zabezpečí, že text bude nad obrázkom */
+
+    /* hranatá maska cez vrstvené lineárne gradienty *
+  -webkit-mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%),
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 20%),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%);
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+  mask-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%),
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 20%),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 0%);/**/
+}
+
+.text-zarovnany-do-lava-s-odsadenim {
+  text-align: left;
+  margin-left: 0%;
+  padding: 30px; /* priestor okolo textu */
+  color: #ddd6b1; /* farba textu */
+
+}
+
+@media (max-width: 950px) {
+  .hlavna-hlavicka {
+    flex-direction: column;
+    height: auto;
+    padding: 3rem 0;
+  }
+
+  .neviditelnyPanelVHlavickeAPate {
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .vertikalny-panel-s-logom-a-menu {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+
+  .logo img {
+    width: 80%;
+    height: auto;
+  }
+
+  .menu-panel {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    padding: 0px;
+    flex-direction: row;
+    height: auto;
+    justify-content: space-evenly;
+    height: 100px;
+    flex-wrap: wrap;
+  }
+
+  .menu-item {
+    flex: 1 1 auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    transform: none !important;
+  }
+
+  .menu-item:hover {
+    transform: none;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .vertikalny-panel-vedla-panela-s-menu-automaticka-sirka {
+    flex: unset;
+    min-width: unset;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .overlay-text {
+    font-size: 2rem;
+    margin-left: 30px;
+    margin-top: 1rem;
+    width: auto;
+  }
+
+  .overlay-text::after {
+    transform: translate(20px, 0px) scale(1.2);
+  }
+
+  .normalny-text {
+    font-size: 1rem;
+    margin: 1rem;
+    text-align: justify;
+  }
+
+  .normalny-text-bledy {
+    font-size: 1rem;
+    padding-left: 15px;
+    text-align: left;
+  }
+
+  .normalny-text-vlavo {
+    font-size: 1rem;
+    margin: 1rem;
+    text-align: justify;
+  }
+
+  .normalny-text-bledy {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-bottom: 20px;
+  }
+
+  .priesvitny-zvyraznujuci-panel {
+    position: relative;
+    top: 40px;
+    margin-bottom: 90px;
+
+    padding: 1rem;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .panel-s-obsahom-stranky {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .panel-na-odsadenie {
+  margin-right: 0%;
+  }
+
+  .jazykovy-prepinac {
+    top: 5px;
+    right: 5px;
+    gap: 4px;
+  }
+
+  header {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  /*Mriežka dlaždice v obsahu stránky*/
+
+  .menu-panel-mriezka-dlazdice {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 170px); /* 250px široké dlaždice */
+  padding: 0px;
+  font-size: 0.7rem;
+  }
+
+  .menu-text-mriezka-dlazdice {
+    font-size: 0.8rem;
+  }
+
+  .popis-v-dlazdici {
+    top: 5px; /* umiestnenie podľa potreby */
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .menu-item-mriezka-dlazdice {
+    width: 170px;
+    height: 350px;
+  }
+
+  /*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*/
+
+  .panel-mriezka-pre-loga {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 170px); /* 250px široké dlaždice */
+    justify-content: center; /* zarovnanie do stredu */
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  .dlazdica-s-logom-a-textom {
+    height: 250px; /* pevná výška dlaždice */
+    padding: 20px;
+  }
+
+}

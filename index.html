@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>01enviro</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+    <!-- OpenLayers -->
+    <link href="https://cdn.jsdelivr.net/npm/ol@latest/ol.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+  </head>
+  <body>
+    <div class="jazykovy-prepinac">
+      <button data-lang-switch="sk">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Slovakia.svg" width="20" alt="Slovak flag"> SK
+      </button>
+      <button data-lang-switch="en">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" width="20" alt="UK flag"> EN
+      </button>
+    </div>
+    
+    <div class="hlavna-hlavicka">
+
+      <div class="neviditelnyPanelVHlavickeAPate">
+        
+        <div class="vertikalny-panel-s-logom-a-menu">
+
+          <div class="logo">
+            <a href="index.html">
+              <img src="obrazky/logoEnviro01Transparent.png" alt="Logo" />
+            </a>
+          </div>
+
+          <div class="menu-panel"></div>
+
+        </div>
+
+        <div class="vertikalny-panel-vedla-panela-s-menu-automaticka-sirka">
+          <div class="priesvitny-zvyraznujuci-panel">
+
+            <div class="overlay-text" preklad-data-text="uvodnyNadpis" overlay-data-text=""></div>
+            <div class="normalny-text-bledy"></div>
+
+          </div>
+
+        </div>
+
+      
+
+ 
+      </div>
+
+    </div>
+
+    <canvas id="bg"></canvas>
+
+    <div class="panel-s-obsahom-stranky">
+      <div class="panel-na-odsadenie">
+
+        <header preklad-data-text="indexNadpis1"></header>
+        <div class="normalny-text" preklad-data-text="indexText1"></div>
+
+        <img src="obrazky/ilustracnyObrazok.jpg" alt="Obrazok" class="obrazok">
+
+        <div class="normalny-text" preklad-data-text="indexText1-1"></div>
+
+        <div class="oddelovac-obsahu"></div>
+
+        <header preklad-data-text="indexNadpis2"></header>
+
+        <div class="normalny-text" preklad-data-text="indexText2"></div>
+
+        <div class="menu-panel-mriezka-dlazdice">
+          <a href="podkladove-modely.html" class="menu-item-mriezka-dlazdice" style="background-image: url('obrazky/podkladoveModely.webp');">
+            <div class="popis-v-dlazdici" preklad-data-text="popisPodkladoveModely"> </div>
+            <div class="menu-overlay-mriezka-dlazdice"></div>
+            <div class="menu-text-mriezka-dlazdice" preklad-data-text="podkladoveModely"></div>
+            <div class="panel-na-zvyraznenie-pisma-mriezka-dlazdice"></div>
+          </a>
+          <a href="mestsky-tepelny-ostrov.html" class="menu-item-mriezka-dlazdice" style="background-image: url('obrazky/tepelnyOstrov.jpg');">
+            <div class="popis-v-dlazdici" preklad-data-text="popisTepelnyOstrov">  </div>
+            <div class="menu-overlay-mriezka-dlazdice"></div>
+            <div class="menu-text-mriezka-dlazdice" preklad-data-text="tepelnyOstrov"></div>
+            <div class="panel-na-zvyraznenie-pisma-mriezka-dlazdice"></div>
+          </a>
+          <a href="noise-solver.html" class="menu-item-mriezka-dlazdice" style="background-image: url('obrazky/noiseSolver.png')">
+            <div class="popis-v-dlazdici" preklad-data-text="popisNoiseSolver"></div>
+            <div class="menu-overlay-mriezka-dlazdice"></div>
+            <div class="menu-text-mriezka-dlazdice" preklad-data-text="noiseSolver"></div>
+            <div class="panel-na-zvyraznenie-pisma-mriezka-dlazdice"></div>
+          </a>
+          <a href="programovanie.html" class="menu-item-mriezka-dlazdice" style="background-image: url('obrazky/programovanie.jpg');">
+            <div class="popis-v-dlazdici" preklad-data-text="popisProgramovanie"></div>
+            <div class="menu-overlay-mriezka-dlazdice"></div>
+            <div class="menu-text-mriezka-dlazdice" preklad-data-text="programovanie"></div>
+            <div class="panel-na-zvyraznenie-pisma-mriezka-dlazdice"></div>
+          </a>
+          <a href="klimaticka-zmena.html" class="menu-item-mriezka-dlazdice" style="background-image: url('obrazky/klimatickaZmena.webp');">
+            <div class="popis-v-dlazdici" preklad-data-text="popisKlimatickaZmena"></div>
+            <div class="menu-overlay-mriezka-dlazdice"></div>
+            <div class="menu-text-mriezka-dlazdice" preklad-data-text="klimatickaZmena"></div>
+            <div class="panel-na-zvyraznenie-pisma-mriezka-dlazdice"></div>
+          </a>
+          <a href="tvorba-webstranok.html" class="menu-item-mriezka-dlazdice" style="background-image: url('obrazky/tvorbaWebstranok.png');">
+            <div class="popis-v-dlazdici" preklad-data-text="popisTvorbaWebstranok"></div>
+            <div class="menu-overlay-mriezka-dlazdice"></div>
+            <div class="menu-text-mriezka-dlazdice" preklad-data-text="tvorbaWebstranok"></div>
+            <div class="panel-na-zvyraznenie-pisma-mriezka-dlazdice"></div>
+          </a>
+          <a href="export-map.html" class="menu-item-mriezka-dlazdice" style="background-image: url('obrazky/exportMap.png');">
+            <div class="popis-v-dlazdici" preklad-data-text="popisExportMap"></div>
+            <div class="menu-overlay-mriezka-dlazdice"></div>
+            <div class="menu-text-mriezka-dlazdice" preklad-data-text="exportMap"></div>
+            <div class="panel-na-zvyraznenie-pisma-mriezka-dlazdice"></div>
+          </a>
+        </div>
+
+        <div class="oddelovac-obsahu"></div>
+
+        <header preklad-data-text="indexNadpis3"></header>
+
+        <div class="normalny-text" preklad-data-text="indexText3"></div>
+
+        <div id="ol-map" class="nizsia"></div>
+
+        <div class="oddelovac-obsahu"></div>
+
+        <header preklad-data-text="indexNadpis4"></header>
+
+        <div class="panel-mriezka-pre-loga">
+          <div class="dlazdica-s-logom-a-textom">
+            <div class="logo-container">
+              <img src="obrazky/qgisLogo.png" alt="Logo" />
+            </div>
+            <div class="popisny-text-pod-logom">QGIS</div>
+          </div>
+          <div class="dlazdica-s-logom-a-textom">
+            <div class="logo-container">
+              <img src="obrazky/unityLogo.png" alt="Logo" />
+            </div>
+            <div class="popisny-text-pod-logom">Unity</div>
+          </div>
+          <div class="dlazdica-s-logom-a-textom">
+            <div class="logo-container">
+              <img src="obrazky/vsCodeLogo.png" alt="Logo" />
+            </div>
+            <div class="popisny-text-pod-logom">VS Code</div>
+          </div>
+          <div class="dlazdica-s-logom-a-textom">
+            <div class="logo-container">
+              <img src="obrazky/visualStudioLogo.png" alt="Logo" />
+            </div>
+            <div class="popisny-text-pod-logom">Visual Studio</div>
+          </div>
+          <div class="dlazdica-s-logom-a-textom">
+            <div class="logo-container">
+              <img src="obrazky/pythonLogo.png" alt="Logo" />
+            </div>            
+            <div class="popisny-text-pod-logom">Python</div>
+          </div>
+            <div class="dlazdica-s-logom-a-textom">
+              <div class="logo-container">
+                <img src="obrazky/cSharpLogo.png" alt="Logo" />
+              </div>            
+            <div class="popisny-text-pod-logom">C#</div>
+          </div>
+                    <div class="dlazdica-s-logom-a-textom">
+            <div class="logo-container">
+              <img src="obrazky/html5Logo.png" alt="Logo" />
+            </div>            
+            <div class="popisny-text-pod-logom">HTML5</div>
+          </div>
+                    <div class="dlazdica-s-logom-a-textom">
+            <div class="logo-container">
+              <img src="obrazky/cssLogo.png" alt="Logo" />
+            </div>            
+            <div class="popisny-text-pod-logom">CSS</div>
+          </div>
+                    <div class="dlazdica-s-logom-a-textom">
+            <div class="logo-container">
+              <img src="obrazky/javaScriptLogo.png" alt="Logo" />
+            </div>            
+            <div class="popisny-text-pod-logom">Java Script</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="pataStranky">
+
+      <div class="neviditelnyPanelVHlavickeAPate" style="background-position: center bottom;">
+
+        <div class="priesvitny-zvyraznujuci-panel-v-pate">
+        
+          <div class="text-zarovnany-do-lava-s-odsadenim">
+            &copy; <span id="current-year"></span>&nbsp;&nbsp;&nbsp;01enviro.github.io
+          </div>
+        
+          <script>
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+          </script>
+
+        </div>
+        
+      </div>
+
+    </div>
+
+
+
+    <script src="skripty/menu.js"></script>
+    <script src="skripty/vlozTexty.js"></script>
+    <script src="skripty/odsadenie-po-br.js"></script>
+    <script src="skripty/prichodTextuPoPismenach.js"></script>
+    <script src="skripty/oznacovanieAktivnejMenuDlazdice.js"></script>
+    <script src="skripty/backgroundScript.js"></script>
+    <script src="skripty/afterEfektNadpisovPriSkrolovani.js"></script>
+    <script src="skripty/ol-map.js"></script>
+    <script src="skripty/formular.js"></script>
+    <script src="skripty/neprerusovatAnimaciuKyvania.js"></script>
+
+
+
+  </body>
+</html>
