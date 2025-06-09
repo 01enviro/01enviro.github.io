@@ -242,6 +242,11 @@ a:hover {
   background-color: rgba(10, 9, 0, 0.5); /* priesvitná čierna */
   backdrop-filter: blur(8px);
 
+  padding-right: 20%;
+  padding-left: 7%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+
   /*display: flex;*/
   flex-direction: column;
 
@@ -273,13 +278,10 @@ a:hover {
   font-size: 3rem;
   font-weight: bold;
 
-  margin-left: 100px;
-  margin-top: 50px;
-
   animation: fadeScaleUp 1.6s ease-out forwards;
   animation-delay: 0s;
   z-index: 50;
-  width: 500px;
+  width: auto;
   font-weight: 1000;
 }
 
@@ -335,11 +337,6 @@ a:hover {
 .normalny-text-bledy {
   position: relative;
   margin-top: 30px;
-  margin-left: 100px;
-  margin-right: 20%;
-
-  padding-bottom: 40px;
-
 
   font-size: 1.2em;           /* Zväčšenie textu (napr. 120 % veľkosti pôvodného textu) */
   line-height: 1.6;           /* Zvýšenie riadkovania – odporúča sa medzi 1.4 až 1.8 */
@@ -921,7 +918,6 @@ button.form-submit-button {
     flex-direction: row;
     height: auto;
     justify-content: space-evenly;
-    height: 100px;
     flex-wrap: wrap;
   }
 
@@ -946,8 +942,6 @@ button.form-submit-button {
 
   .overlay-text {
     font-size: 2rem;
-    margin-left: 30px;
-    margin-top: 1rem;
     width: auto;
   }
 
@@ -956,27 +950,19 @@ button.form-submit-button {
   }
 
   .normalny-text {
-    font-size: 1rem;
-    margin: 1rem;
+    font-size: 0.9rem;
+    margin: 0.9rem;
     text-align: justify;
-  }
-
-  .normalny-text-bledy {
-    font-size: 1rem;
-    padding-left: 15px;
-    text-align: left;
   }
 
   .normalny-text-vlavo {
-    font-size: 1rem;
-    margin: 1rem;
+    font-size: 0.9rem;
+    margin: 0.9rem;
     text-align: justify;
   }
 
   .normalny-text-bledy {
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding-bottom: 20px;
+    font-size: 1rem;
   }
 
   .priesvitny-zvyraznujuci-panel {
@@ -984,7 +970,165 @@ button.form-submit-button {
     top: 40px;
     margin-bottom: 90px;
 
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .panel-s-obsahom-stranky {
+    margin: 1rem;
     padding: 1rem;
+  }
+
+  .panel-na-odsadenie {
+  margin-right: 0%;
+  }
+
+  .jazykovy-prepinac {
+    top: 5px;
+    right: 5px;
+    gap: 4px;
+  }
+
+  header {
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+
+  /*Mriežka dlaždice v obsahu stránky*/
+
+  .menu-panel-mriezka-dlazdice {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 170px); /* 250px široké dlaždice */
+  padding: 0px;
+  font-size: 0.7rem;
+  }
+
+  .menu-text-mriezka-dlazdice {
+    font-size: 0.8rem;
+  }
+
+  .popis-v-dlazdici {
+    top: 5px; /* umiestnenie podľa potreby */
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .menu-item-mriezka-dlazdice {
+    width: 170px;
+    height: 350px;
+  }
+
+  /*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*/
+
+  .panel-mriezka-pre-loga {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 170px); /* 250px široké dlaždice */
+    justify-content: center; /* zarovnanie do stredu */
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  .dlazdica-s-logom-a-textom {
+    height: 250px; /* pevná výška dlaždice */
+    padding: 20px;
+  }
+
+  #ol-map.nizsia {
+    height: 600px; /* nastav dostatočnú výšku */
+  }
+
+  #ol-map.vyssia {
+    height: 800px; /* nastav dostatočnú výšku */
+  }
+
+}
+
+
+@media (max-width: 480px) {
+  .hlavna-hlavicka {
+    flex-direction: column;
+    height: auto;
+    padding: 3rem 0;
+  }
+
+  .neviditelnyPanelVHlavickeAPate {
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .vertikalny-panel-s-logom-a-menu {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+  }
+
+  .logo img {
+    width: 80%;
+    height: auto;
+  }
+
+  .menu-panel {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    padding: 0px;
+    flex-direction: row;
+    height: auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .menu-item {
+    flex: 1 1 auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.6rem;
+    transform: none !important;
+  }
+
+  .menu-item:hover {
+    transform: none;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .vertikalny-panel-vedla-panela-s-menu-automaticka-sirka {
+    flex: unset;
+    min-width: unset;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .overlay-text {
+    font-size: 1.5rem;
+    width: auto;
+  }
+
+  .overlay-text::after {
+    transform: translate(20px, 0px) scale(1.2);
+  }
+
+  .normalny-text {
+    font-size: 0.7rem;
+  }
+
+  .normalny-text-bledy {
+    font-size: 0.7rem;
+  }
+
+  .normalny-text-vlavo {
+    font-size: 0.7rem;
+  }
+
+  .priesvitny-zvyraznujuci-panel {
     -webkit-mask-image: none;
     mask-image: none;
   }
@@ -1050,5 +1194,13 @@ button.form-submit-button {
     height: 250px; /* pevná výška dlaždice */
     padding: 20px;
   }
+
+    #ol-map.nizsia {
+    height: 400px; /* nastav dostatočnú výšku */
+    }
+
+    #ol-map.vyssia {
+      height: 500px; /* nastav dostatočnú výšku */
+    }
 
 }
