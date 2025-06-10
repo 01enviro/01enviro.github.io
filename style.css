@@ -93,7 +93,6 @@ a:hover {
   transition: background-color 0.3s ease;
   backdrop-filter: blur(8px);
   justify-items: center;
-  align-items: center;
 }
 
 .jazykovy-prepinac button:hover {
@@ -631,7 +630,7 @@ a:hover {
   width: 100%;   /* rozťahuje sa na celú šírku rodiča */
   margin-top: 20px;
   margin-bottom: 70px;
-  border: 2px solid #ccc;
+
   border-radius: 12px;
   overflow: hidden;
 }
@@ -639,8 +638,7 @@ a:hover {
 #ol-map.vyssia {
   height: 900px; /* nastav dostatočnú výšku */
   width: 100%;   /* rozťahuje sa na celú šírku rodiča */
-  margin: 0 auto;
-  border: 2px solid #ccc;
+  margin: 50px auto;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -879,26 +877,22 @@ button.form-submit-button {
   .hlavna-hlavicka {
     flex-direction: column;
     height: auto;
-    padding: 2rem 0;
+    padding-bottom: 2rem;
     justify-content: center;
 
       /* hranatá maska cez vrstvené lineárne gradienty */
     -webkit-mask-image: 
-      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 8px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 8px);
+      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 8px);
 
     -webkit-mask-composite: intersect;
     mask-composite: intersect;
     mask-image: 
-      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 8px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 8px);
+      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 8px);
   }
 
   .neviditelnyPanelVHlavickeAPate {
     flex-direction: column;
     width: 100%;
-    height: 85%;
-    margin-bottom: auto;
   }
 
   .vertikalny-panel-s-logom-a-menu {
@@ -960,13 +954,15 @@ button.form-submit-button {
 
   .normalny-text {
     font-size: 0.9rem;
-    margin: 0.9rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     text-align: justify;
   }
 
   .normalny-text-vlavo {
     font-size: 0.9rem;
-    margin: 0.9rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     text-align: justify;
   }
 
@@ -984,23 +980,12 @@ button.form-submit-button {
   }
 
   .panel-s-obsahom-stranky {
-    margin: 1rem;
-    padding: 1rem;
+    margin: 1.5rem;
+    padding: 1.5rem;
   }
 
   .panel-na-odsadenie {
   margin-right: 0%;
-  }
-
-  .jazykovy-prepinac {
-    top: 5px;
-    right: 5px;
-    gap: 4px;
-  }
-
-  header {
-    font-size: 2rem;
-    padding: 0.5rem;
   }
 
   /*Mriežka dlaždice v obsahu stránky*/
@@ -1008,7 +993,7 @@ button.form-submit-button {
   .menu-panel-mriezka-dlazdice {
   display: grid;
   grid-template-columns: repeat(auto-fill, 170px); /* 250px široké dlaždice */
-  padding: 0px;
+  padding: 5px;
   font-size: 0.7rem;
   gap: 15px;
   }
@@ -1078,6 +1063,26 @@ button.form-submit-button {
 
   .text-zarovnany-do-lava-s-odsadenim {
   font-size: 0.8rem;
+  }
+
+  /* PATA STRANKY*//* PATA STRANKY*//* PATA STRANKY*//* PATA STRANKY*//* PATA STRANKY*/
+
+  .pataStranky {
+    padding-top: 2rem;
+  }
+
+  /* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov */
+
+  .jazykovy-prepinac {
+    top: 105px;
+    left: 5px;
+    gap: 5px;
+  }
+
+  .jazykovy-prepinac button {
+
+    width: 43px;
+    height: 20px;
   }
 
 }
@@ -1169,8 +1174,8 @@ button.form-submit-button {
   }
 
   .panel-s-obsahom-stranky {
-    margin: 0.5rem;
-    padding: 0.5rem;
+    margin: 1rem;
+    padding: 1rem;
   }
 
   .panel-na-odsadenie {
@@ -1192,7 +1197,7 @@ button.form-submit-button {
 
   .menu-panel-mriezka-dlazdice {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 120px); /* 250px široké dlaždice */
+  grid-template-columns: repeat(auto-fill, 130px); /* 250px široké dlaždice */
   padding: 0px;
   font-size: 0.6rem;
   gap: 8px;
@@ -1228,7 +1233,7 @@ button.form-submit-button {
 
 
   .menu-item-mriezka-dlazdice {
-    width: 120px;
+    width: 130px;
     height: 235px;
     border-radius: 6px;
   }
@@ -1246,14 +1251,6 @@ button.form-submit-button {
     box-sizing: border-box;
   }
 
-    .menu-panel-mriezka-dlazdice {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 120px); /* 250px široké dlaždice */
-    padding: 0px;
-    font-size: 0.6rem;
-    gap: 8px;
-  }
-
   .dlazdica-s-logom-a-textom {
     height: 120px; /* pevná výška dlaždice */
     padding: 8px;
@@ -1264,8 +1261,8 @@ button.form-submit-button {
   }
 
   .dlazdica-s-logom-a-textom img {
-  max-width: 100%;         /* Prispôsobí veľkosť obrázku podľa kontajnera */
-  max-height: 50px;        /* Maximálna výška obrázka*/
+    max-width: 100%;         /* Prispôsobí veľkosť obrázku podľa kontajnera */
+    max-height: 50px;        /* Maximálna výška obrázka*/
   }
 
   .popisny-text-pod-logom {
@@ -1274,7 +1271,7 @@ button.form-submit-button {
   }
 
   #ol-map.nizsia {
-  height: 400px; /* nastav dostatočnú výšku */
+    height: 400px; /* nastav dostatočnú výšku */
   }
 
   #ol-map.vyssia {
@@ -1283,6 +1280,21 @@ button.form-submit-button {
 
   .text-zarovnany-do-lava-s-odsadenim {
   font-size: 0.7rem;
+  }
+
+    /* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov */
+
+  .jazykovy-prepinac {
+    flex-direction: row;
+    top: 75px;
+    left: 5px;
+    gap: 5px;
+  }
+
+  .jazykovy-prepinac button {
+
+    width: 28px;
+    height: 20px;
   }
 
 }
