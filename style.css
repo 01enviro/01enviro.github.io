@@ -843,6 +843,11 @@ button.form-submit-button {
   overflow: hidden;
 
   transform: translateY(5px);
+<<<<<<< HEAD
+=======
+
+}
+>>>>>>> parent of d24eab8 (css update)
 
 }
 
@@ -1081,6 +1086,20 @@ button.form-submit-button {
     padding-top: 2rem;
   }
 
+<<<<<<< HEAD
+=======
+  .neviditelnyPanelNaOdsadenieVPate {
+    flex-direction: column;
+    width: 100%;
+    transform: translateY(2px);
+  }
+
+  .neviditelnyPanelVHlavickeAPate {
+    flex-direction: column;
+    width: 100%;
+  }
+
+>>>>>>> parent of d24eab8 (css update)
   /* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov */
 
   .jazykovy-prepinac {
