@@ -1,18 +1,12 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: auto;
 
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   font-weight: 200;
   background: #ddd6b1;
-
-  flex-direction: column;
-}
-
-body {
-  flex: 1;
 }
 
 canvas#bg {
