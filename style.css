@@ -842,6 +842,8 @@ button.form-submit-button {
   flex-shrink: 0;
   overflow: hidden;
 
+  transform: translateY(5px);
+
 }
 
 .priesvitny-zvyraznujuci-panel-v-pate {
