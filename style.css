@@ -814,6 +814,7 @@ button.form-submit-button {
 }
 
 
+
 /* PATA STRANKY*//* PATA STRANKY*//* PATA STRANKY*//* PATA STRANKY*//* PATA STRANKY*/
 
 .pataStranky {
@@ -843,17 +844,6 @@ button.form-submit-button {
 
   transform: translateY(5px);
 
-}
-
-.neviditelnyPanelNaOdsadenieVPate {
-  position: relative;
-  width: 85%;
-  margin-left: auto;
-  padding: 0rem;
-  display: flex;
-  flex-direction: row;
-  background-image: url('obrazky/pozadie01.png');
-  background-size: cover;
 }
 
 .priesvitny-zvyraznujuci-panel-v-pate {
@@ -1089,17 +1079,6 @@ button.form-submit-button {
 
   .pataStranky {
     padding-top: 2rem;
-  }
-
-  .neviditelnyPanelNaOdsadenieVPate {
-    flex-direction: column;
-    width: 100%;
-    transform: translateY(2px);
-  }
-
-  .neviditelnyPanelVHlavickeAPate {
-    flex-direction: column;
-    width: 100%;
   }
 
   /* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov *//* Prepínač jazykov */
