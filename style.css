@@ -93,14 +93,16 @@ a:hover {
   font-size: 0.9rem;
   transition: background-color 0.3s ease;
   backdrop-filter: blur(8px);
-  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden; /* schová prečnievajúce časti, ak treba */
 }
 
 .jazykovy-prepinac button img {
-  height: 15px; /* výška namiesto width kvôli rovnakému zarovnaniu */
-  width: auto;
-  display: block;
+  height: 110%;
+  transform: scale(1.4);
 }
+
+
 
 .jazykovy-prepinac button:hover {
   background-color: #ddd;
@@ -1088,9 +1090,13 @@ button.form-submit-button {
   }
 
   .jazykovy-prepinac button {
-
     width: 43px;
     height: 20px;
+  }
+
+  .jazykovy-prepinac button img {
+  height: 110%;
+  transform: scale(1.5);
   }
 
 }
@@ -1294,9 +1300,12 @@ button.form-submit-button {
   }
 
   .jazykovy-prepinac button {
-
     width: 28px;
     height: 20px;
   }
 
+  .jazykovy-prepinac button img {
+  height: 110%;
+  transform: scale(1.1);
+  }
 }
