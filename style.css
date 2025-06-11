@@ -6,7 +6,7 @@ html, body {
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   font-weight: 200;
-  background: #ddd6b1;
+  background: #000000; /*#ddd6b1*/
 }
 
 canvas#bg {
@@ -654,23 +654,30 @@ a:hover {
 
 /*KONTAKTNÝ FORMULÁR*//*KONTAKTNÝ FORMULÁR*//*KONTAKTNÝ FORMULÁR*//*KONTAKTNÝ FORMULÁR*/
 
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #form-container {
   max-height: 0;
   opacity: 0;
   transition: max-height 1s ease, opacity 1s ease;
-
-  overflow: hidden;
 }
 
 #form-container.show {
   max-height: 500px; /* dostatočná výška pre formulár */
   opacity: 1;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
 }
 
 input,
 textarea {
-  width: 97%;
+  width: 95%;
   padding: 10px;
   margin: 10px;
   font-size: 1em;
@@ -681,9 +688,6 @@ textarea {
   border-radius: 8px;
 
   overflow: hidden;
-
-  /*backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);*/
 }
 
 input::placeholder,
@@ -712,6 +716,7 @@ button.form-submit-button {
   color: white;
   border: none;
   border-radius: 6px;
+  align-self: flex-start; /* zarovná len tlačidlo doľava */
 }
 
 .success-message {

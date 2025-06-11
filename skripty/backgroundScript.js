@@ -183,6 +183,11 @@ function animate() {
     p.draw();
   }
 
+  /*// Čierne pruhy hore a dole
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0, 0, width, 5); // vrchný
+  ctx.fillRect(0, height - 5, width, 5); // spodný*/
+
   requestAnimationFrame(animate);
 }
 
