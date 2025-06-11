@@ -131,7 +131,7 @@ a:hover {
   padding: 0rem;
   display: flex;
   flex-direction: row;
-  background-image: url('obrazky/pozadie01.png');
+  background-image: url('obrazky/pozadie01.webp');
   background-size: cover;
 }
 
