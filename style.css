@@ -6,7 +6,7 @@ html, body {
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   font-weight: 200;
-  background: #000000; /*#ddd6b1*/
+  background: #ddd6b1; /*#ddd6b1*/
 }
 
 canvas#bg {
