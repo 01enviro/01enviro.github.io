@@ -49,7 +49,11 @@
     "vasEmail": "Váš e-mail",
     "vasaSprava": "Vaša správa...",
     "odoslat": "Odoslať",
-    "dakujemeSpravaOdoslana": "Ďakujeme! Správa bola odoslaná."
+    "dakujemeSpravaOdoslana": "Ďakujeme! Správa bola odoslaná.",
+
+    "nadpisNoiseSolverDownload": "Stiahnuť inštalátor",
+
+    "kontaktujteNas": "Kontaktujte nás"
     
     
 
@@ -107,6 +111,10 @@
     "vasEmail": "Your email",
     "vasaSprava": "Your message...",
     "odoslat": "Send", 
-    "dakujemeSpravaOdoslana": "Thank you! Your message has been sent."
+    "dakujemeSpravaOdoslana": "Thank you! Your message has been sent.",
+
+    "nadpisNoiseSolverDownload": "Download Installer",
+
+    "kontaktujteNas": "Contact us"
   }
 }

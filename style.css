@@ -571,6 +571,36 @@ a:hover {
   display: block;
 }
 
+
+.cierny-priesvitny-button {
+  display: flex;
+  margin: 30px auto;
+  padding: 15px 30px;
+  width: fit-content; /* vďaka tomuto sa neroztiahne na celú širku rodiča*/
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: none;
+  border: 0px solid white;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Hover efekt */
+.cierny-priesvitny-button:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* biela polopriesvitná */
+  color: black;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* tieň */
+  transform: scale(1.15); /* zväčšenie */
+}
+
+
 /*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*//*Programy ktoré používame*/
 
 .panel-mriezka-pre-loga {
@@ -693,30 +723,6 @@ textarea {
 input::placeholder,
 textarea::placeholder {
   color: rgba(255, 255, 255, 0.7);
-}
-
-button.interest-button {
-  /* Špecifický štýl len pre toto tlačidlo */
-  background-color: rgb(10, 9, 0, 0.5);
-  height: 50px;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-weight: 200;
-}
-
-button.form-submit-button {
-  margin: 10px;
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
-  background-color: rgba(10, 9, 0, 0.5);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  align-self: flex-start; /* zarovná len tlačidlo doľava */
 }
 
 .success-message {
