@@ -1306,40 +1306,26 @@ textarea::placeholder {
 
   .menu-panel-mriezka-dlazdice {
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 8px;
+    gap: 15px;
     font-size: 0.75rem;
   }
 
   .menu-text-mriezka-dlazdice {
     font-size: 0.75rem;
-    padding: 8px;
+    padding: 12px;
   }
 
   .popis-v-dlazdici {
     top: 1px; /* umiestnenie podľa potreby */
     margin-left: 1px;
     margin-right: 1px;
+    width: 100%;
 
-    padding: 8px;
+    padding: 15px;
     box-sizing: border-box; /* zabezpečí, že padding sa započíta do veľkosti */
-
-      /* hranatá maska cez vrstvené lineárne gradienty */
-    -webkit-mask-image: 
-      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
-      linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
-      linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px);
-    -webkit-mask-composite: intersect;
-    mask-composite: intersect;
-    mask-image: 
-      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
-      linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
-      linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px);/**/
   }
 
   .menu-item-mriezka-dlazdice {
-    height: 280px;
     border-radius: 6px;
   }
 
