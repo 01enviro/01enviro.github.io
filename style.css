@@ -1011,12 +1011,56 @@ textarea::placeholder {
 
   /*Mriežka dlaždice v obsahu stránky*/
 
-  .menu-panel-mriezka-dlazdice {
+  /*Pôvodné riešenie s fixnou šírkou dlaždíc ako pri desktop verzii stránky*/
+  /*.menu-panel-mriezka-dlazdice {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 170px); /* 250px široké dlaždice */
+  grid-template-columns: repeat(auto-fill, 170px); /* 250px široké dlaždice 
   padding: 5px;
   font-size: 0.7rem;
   gap: 15px;
+  }
+
+  .menu-text-mriezka-dlazdice {
+    font-size: 0.8rem;
+    padding: 15px;
+  }
+
+  .popis-v-dlazdici {
+    top: 3px; /* umiestnenie podľa potreby 
+    margin-left: 3px;
+    margin-right: 3px;
+
+    padding: 15px;
+    box-sizing: border-box; /* zabezpečí, že padding sa započíta do veľkosti 
+
+      /* hranatá maska cez vrstvené lineárne gradienty 
+    -webkit-mask-image: 
+      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px);
+    -webkit-mask-composite: intersect;
+    mask-composite: intersect;
+    mask-image: 
+      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px),
+      linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 10px);/*
+  }
+
+  .menu-item-mriezka-dlazdice {
+    width: 170px;
+    height: 300px;
+  }*/
+
+  .menu-panel-mriezka-dlazdice {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    font-size: 0.8rem;
+    gap: 15px;
   }
 
   .menu-text-mriezka-dlazdice {
@@ -1048,7 +1092,7 @@ textarea::placeholder {
   }
 
   .menu-item-mriezka-dlazdice {
-    width: 170px;
+    width: 100%;
     height: 300px;
   }
 
@@ -1150,7 +1194,7 @@ textarea::placeholder {
   .menu-item {
     flex: 1 1 auto;
     padding: 0.5rem 1rem;
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     transform: none !important;
   }
 
@@ -1176,15 +1220,15 @@ textarea::placeholder {
   }
 
   .normalny-text {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .normalny-text-bledy {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .normalny-text-vlavo {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .priesvitny-zvyraznujuci-panel {
@@ -1214,9 +1258,11 @@ textarea::placeholder {
 
   /*Mriežka dlaždice v obsahu stránky*/
 
+  /*pôvodná verzia s dvomi stlpcami pre mobily*/
+  /*
   .menu-panel-mriezka-dlazdice {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 130px); /* 250px široké dlaždice */
+  grid-template-columns: repeat(auto-fill, 130px); /* 250px široké dlaždice 
   padding: 0px;
   font-size: 0.6rem;
   gap: 8px;
@@ -1224,6 +1270,48 @@ textarea::placeholder {
 
   .menu-text-mriezka-dlazdice {
     font-size: 0.6rem;
+    padding: 8px;
+  }
+
+  .popis-v-dlazdici {
+    top: 1px; /* umiestnenie podľa potreby 
+    margin-left: 1px;
+    margin-right: 1px;
+
+    padding: 8px;
+    box-sizing: border-box; /* zabezpečí, že padding sa započíta do veľkosti 
+
+      /* hranatá maska cez vrstvené lineárne gradienty 
+    -webkit-mask-image: 
+      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px);
+    -webkit-mask-composite: intersect;
+    mask-composite: intersect;
+    mask-image: 
+      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px),
+      linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px);/*
+  }
+
+
+  .menu-item-mriezka-dlazdice {
+    width: 130px;
+    height: 235px;
+    border-radius: 6px;
+  }
+  */
+
+  .menu-panel-mriezka-dlazdice {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+    font-size: 0.75rem;
+  }
+
+  .menu-text-mriezka-dlazdice {
+    font-size: 0.75rem;
     padding: 8px;
   }
 
@@ -1250,10 +1338,8 @@ textarea::placeholder {
       linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,1) 5px);/**/
   }
 
-
   .menu-item-mriezka-dlazdice {
-    width: 130px;
-    height: 235px;
+    height: 280px;
     border-radius: 6px;
   }
 
