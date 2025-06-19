@@ -79,8 +79,12 @@
         <div class="oddelovac-obsahu"></div>
         
         <header preklad-data-text="nadpisNoiseSolverDownload"></header>
-        <a href="noiseSolverInstaller/NoiseSolverInstaller.exe" download class="cierny-priesvitny-button" preklad-data-text="nadpisNoiseSolverDownload">
-        </a>
+        <a href="noiseSolverInstaller/NoiseSolverInstaller.exe" download class="cierny-priesvitny-button" preklad-data-text="nadpisNoiseSolverDownload"></a>
+        
+        <form id="download-notify-form" action="https://usebasin.com/f/8a7911a18483" method="POST" style="display: none;">
+          <input type="hidden" name="email" value="noreply@usebasin.com">
+          <input type="hidden" name="event" value="download_clicked">
+        </form>
         
 
         <div class="oddelovac-obsahu"></div>
@@ -111,13 +115,6 @@
           </div>
           <div class="success-message-text" preklad-data-text="dakujemeSpravaOdoslana"></div>
         </div>
-
-
-
-
-
-
-
 
       </div>
     </div>
@@ -151,6 +148,23 @@
     <script src="skripty/afterEfektNadpisovPriSkrolovani.js"></script>
     <script src="skripty/ol-map.js"></script>
     <script src="skripty/formular.js"></script>
+    <!-- upozornenie pri stiahnutí -->
+    <script> 
+      document.addEventListener("DOMContentLoaded", function() {
+        const downloadLink = document.querySelector('a[href="noiseSolverInstaller/NoiseSolverInstaller.exe"]');
+        const downloadNotifyForm = document.getElementById("download-notify-form");
+
+        if (downloadLink && downloadNotifyForm) {
+          downloadLink.addEventListener("click", function() {
+            fetch(downloadNotifyForm.action, {
+              method: "POST",
+              body: new FormData(downloadNotifyForm),
+              mode: "no-cors"
+            });
+          });
+        }
+      });
+    </script>
 
   </body>
 </html>
